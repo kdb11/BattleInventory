@@ -1,4 +1,5 @@
 
+
 namespace BattleInventory.Core;
 
 public class Player : Character
@@ -29,4 +30,9 @@ public class Player : Character
     }
 
     public bool IsAlive() => Health > 0;
+
+    public void AddToInventory(HealthPotion hPotion)
+    {
+        Inventory.Add(hPotion);
+    }
 }

@@ -15,7 +15,7 @@ public class BattleInventoryTest
         character.Health = 100;
         character.AttackPower = 5;
         character.Defence = 5;
-        character.Inventory?.Add(new HealthPotion());
+        character.Inventory?.Add(new HealthPotion(10));
 
         character.Name.ShouldBe("Aragon");
         character.Health.ShouldBe(100);
@@ -45,8 +45,7 @@ public class BattleInventoryTest
     }
     public void Test_HealthPotion_Give_Heal()
     {
-        var HealthPotion = new HealthPotion();
-        HealthPotion.HealAmount = 5;
+        var HealthPotion = new HealthPotion(5);
 
         HealthPotion.Function().ShouldBe(5);
     }
