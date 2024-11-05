@@ -6,6 +6,7 @@ public class HealthPotion : Item
     {
         Value = healAmount;
         Name = name;
+        ItemType = TypeOfItem.Healing;
     }
 
     public override int Function()

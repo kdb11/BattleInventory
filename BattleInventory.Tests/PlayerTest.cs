@@ -83,8 +83,44 @@ public class PlayerTest
         player.AddToInventory(hPotion);
         player.TakeDamage(10);
 
-        player.HealDamage(player.Inventory[0].Value);       
+        player.UseItem(player.Inventory[0]);
 
         player.Health.ShouldBe(player.MaxHealth);
+    }
+
+    [Fact]
+    public void Test_Player_Deal_Damage()
+    {
+        var player = new Player(10, 5, 0);
+        var monster = new Monster(10, 5, 0, 0);
+
+        player.DealDamage(monster);
+
+        monster.Health.ShouldBe(5);
+    }
+
+    [Fact]
+    public void Test_Player_Level_Up()
+    {
+        var player = new Player(10, 10, 0);
+
+        player.GetXP(20);
+
+        player.Experience.ShouldBe(10);
+        player.Level.ShouldBe(2);
+    }
+
+    [Fact]
+    public void Test_Player_Get_XP_From_Monsters()
+    {
+        var player = new Player(10, 1, 0);
+        var monster = new Monster(0, 1, 0, 10);
+
+        if (!monster.IsAlive())
+        {
+            player.GetXP(monster.XPValue);
+        }
+
+        player.Level.ShouldBe(2);
     }
 }
