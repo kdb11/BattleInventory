@@ -9,9 +9,12 @@ public class BattleInventoryCore
     } */
 }
 
-public class Character {
-    public string Name { get; set; }
+public class Character 
+{
+    public string? Name { get; set; }
     public int Health { get; set; }
     public int AttackPower { get; set; }
+    public int Defence { get; set; }
+    public List<Item>? Inventory { get; set; } = new List<Item>();
 
 }
