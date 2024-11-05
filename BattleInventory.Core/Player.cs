@@ -35,4 +35,6 @@ public class Player : Character
     {
         Inventory.Add(hPotion);
     }
+
+    public List<Item> GetItems() => Inventory;
 }
