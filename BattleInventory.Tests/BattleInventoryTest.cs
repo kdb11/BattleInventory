@@ -33,4 +33,23 @@ public class BattleInventoryTest
 
         player.Health.ShouldBeLessThan(player.MaxHealth);
     }
+
+    [Fact]
+    public void Test_Weapon_Give_Damage()
+    {
+        var weapon = new Weapon();
+        weapon.Damage = 5;
+
+        weapon.Function().ShouldBe(5);
+
+    }
+    public void Test_HealthPotion_Give_Heal()
+    {
+        var HealthPotion = new HealthPotion();
+        HealthPotion.HealAmount = 5;
+
+        HealthPotion.Function().ShouldBe(5);
+    }
+
+
 }
