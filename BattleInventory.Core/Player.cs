@@ -1,3 +1,4 @@
+
 namespace BattleInventory.Core;
 
 public class Player : Character
@@ -19,4 +20,13 @@ public class Player : Character
     {
         Health -= dmg;
     }
+
+    public void HealDamage(int healAmount)
+    {
+        Health += healAmount;
+
+        if (Health > MaxHealth) Health = MaxHealth;
+    }
+
+    public bool IsAlive() => Health > 0;
 }

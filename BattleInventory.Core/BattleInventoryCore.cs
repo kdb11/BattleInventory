@@ -15,6 +15,6 @@ public class Character
     public int Health { get; set; }
     public int AttackPower { get; set; }
     public int Defence { get; set; }
-    public List<Item>? Inventory { get; set; } = new List<Item>();
+    public List<Item> Inventory { get; set; } = [];
 
 }
