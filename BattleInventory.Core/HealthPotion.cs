@@ -2,10 +2,10 @@ namespace BattleInventory.Core;
 
 public class HealthPotion : Item
 {
-
-
-    public override void Function()
+    public int HealAmount { get; set; }
+    public override int Function()
     {
-        throw new NotImplementedException();
+        Console.WriteLine($"You healed yourself with {HealAmount} health");
+        return HealAmount;
     }
 }
