@@ -1,0 +1,38 @@
+
+
+ X	ChatGPT projekt som täcker hela backend delen av kursen
+
+ X	Labyrinthspel där spelaren slåss mot monster
+		spelaren kan bli starkare genom att döda monster
+		pickups
+		sån skit
+
+ X	Cool music player with graphics
+
+ X	Space invader
+
+ X	Kortspel
+
+ X	Dungeon crawler
+
+ X	Battle arena
+
+ X	multiplayer battle arena game
+
+	
+
+ X	Unbeatable Tic-Tac-Toe
+
+
+MANDATORY:
+!!!Testdriven development!!!
+
+
+FINAL ROUND:
+
+ X	Quiz-spel
+		Frågesports API
+
+WINNER:
+
+a simple inventory and battle system game
