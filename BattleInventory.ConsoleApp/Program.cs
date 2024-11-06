@@ -47,7 +47,7 @@ void continueOptions()
     {
         Console.WriteLine();
 
-        Console.WriteLine(" Press 1 to Explore\n Press 2 to open Inventory");
+        TextFormat.WriteYellow(" Press 1 to Explore\n Press 2 to open Inventory\n");
         var userInput = Console.ReadLine();
         if (userInput == "1")
         {
@@ -65,7 +65,7 @@ void continueOptions()
 
             for (int i = 0; i < player.Inventory.Count(); i++)
             {
-                Console.WriteLine($"      {i}: {player.Inventory[i].Name}");
+                TextFormat.WriteYellow($"      {i}: {player.Inventory[i].Name}\n");
             }
 
             if (int.TryParse(Console.ReadLine(), out int input) && input < player.Inventory.Count)
@@ -74,7 +74,7 @@ void continueOptions()
                 {
                     // Do healing here!
                     player.HealDamage(player.Inventory[input].Value);
-                    Console.WriteLine($"You recovered {player.Inventory[input].Value} life!");
+                    TextFormat.WriteGreen($"You recovered {player.Inventory[input].Value} life!\n");
                     player.Inventory.RemoveAt(input);
                 }
 
@@ -82,7 +82,7 @@ void continueOptions()
                 {
                     // Equip weapon!
                     player.AttackPower = player.Inventory[input].Value;
-                    Console.WriteLine($"You equiped the {player.Inventory[input].Name}, your attack power is now {player.Inventory[input].Value}!");
+                    TextFormat.WriteGreen($"You equiped the {player.Inventory[input].Name}, your attack power is now {player.Inventory[input].Value}!\n");
                     player.Inventory.RemoveAt(input);
                 }
             }
@@ -112,15 +112,15 @@ void Combat(Monster monster)
     {
         if (!player.IsAlive())
         {
-            Console.WriteLine($"{player.Name} was defeated!\n");
+            TextFormat.WriteRed($"{player.Name} was defeated!\n\n");
             break;
         }
 
-        Console.WriteLine($"You have {player.Health} HP.");
+        Console.Write($"You have "); TextFormat.WriteRed($"{player.Health}"); Console.WriteLine(" HP.");
         Console.WriteLine("Choose an action:");
-        Console.WriteLine("   0: Fight!");
-        Console.WriteLine("   1: Use an item!");
-        Console.WriteLine("   2: Converse!");
+        TextFormat.WriteYellow("   0: Fight!\n");
+        TextFormat.WriteYellow("   1: Use an item!\n");
+        TextFormat.WriteYellow("   2: Converse!\n");
 
         switch (Console.ReadLine())
         {
@@ -144,7 +144,7 @@ void Combat(Monster monster)
 
         if (!monster.IsAlive())
         {
-            Console.WriteLine($"{monster.Name} is defeated!\n");
+            TextFormat.WriteGreen($"{monster.Name} is defeated!\n\n");
             break;
         }
 
@@ -156,8 +156,8 @@ void Combat(Monster monster)
 void OpenTreasure()
 {
     Console.WriteLine("Choose your action");
-    Console.WriteLine("   0: Open Treasure");
-    Console.WriteLine("   1: Continue Exploring");
+    TextFormat.WriteYellow("   0: Open Treasure\n");
+    TextFormat.WriteYellow("   1: Continue Exploring\n");
 
     switch (Console.ReadLine())
     {
