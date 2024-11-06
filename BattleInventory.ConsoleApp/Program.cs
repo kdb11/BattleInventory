@@ -24,6 +24,7 @@ void runGame()
     Console.WriteLine(" You begin to walk along the winding forest path, the sunlight filtering through the trees.\n Suddenly, you hear rustling in the bushes.\n A wild Goblin emerges, snarling, its yellow eyes gleaming in the shadows.\n It's armed with a jagged knife and looks ready to fight.");
 
     Combat(goblin);
+    if (!player.IsAlive()) return;
 
     Console.WriteLine(" You move deeper into the forest, passing over a babbling creek and winding through dense thickets.\n Eventually, you come across an abandoned campfire. A Treasure Chest rests by the fire.\n");
 
@@ -33,6 +34,7 @@ void runGame()
     Console.WriteLine(" As you continue down the forest path, the trees thin out and you find yourself in a clearing.\n In front of you stands a massive Forest Troll.\n Its green skin is covered in thick moss,\n and its red eyes lock onto you.\n It roars, shaking the ground beneath your feet.");
 
     Combat(troll);
+    if (!player.IsAlive()) return;
 
     Console.WriteLine(" As you continue your journey, you encounter more challenges and stories unfold.\n Will you uncover the secrets of the forest,\n defeat even more powerful enemies,\n or find the legendary treasure hidden deep within?\n The path is yours to decide.");
 
