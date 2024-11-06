@@ -15,26 +15,26 @@ void runGame()
     Console.Write("Name thy hero: ");
     player.Name = Console.ReadLine();
 
-    Console.WriteLine("\n-- THE ADVENTURE BEGINS --");
+    Console.WriteLine("\n-- THE ADVENTURE BEGINS --\n");
 
-    Console.WriteLine("You awaken in a dark forest, your armor heavy and your sword at your side. A strange wind rustles the leaves, and you can sense danger nearby. You must prepare yourself for battle and gather supplies to survive. The path ahead is uncertain, filled with both peril and opportunity.");
+    Console.WriteLine(" You awaken in a dark forest, your armor heavy and your sword at your side.\n A strange wind rustles the leaves, and you can sense danger nearby.\n You must prepare yourself for battle and gather supplies to survive.\n The path ahead is uncertain, filled with both peril and opportunity.");
 
     continueOptions();
 
-    Console.WriteLine("You begin to walk along the winding forest path, the sunlight filtering through the trees. Suddenly, you hear rustling in the bushes. A wild Goblin emerges, snarling, its yellow eyes gleaming in the shadows. It's armed with a jagged knife and looks ready to fight.");
+    Console.WriteLine(" You begin to walk along the winding forest path, the sunlight filtering through the trees.\n Suddenly, you hear rustling in the bushes.\n A wild Goblin emerges, snarling, its yellow eyes gleaming in the shadows.\n It's armed with a jagged knife and looks ready to fight.");
 
     Combat(goblin);
 
-    Console.WriteLine("You move deeper into the forest, passing over a babbling creek and winding through dense thickets. Eventually, you come across an abandoned campfire. A Treasure Chest rests by the fire.");
+    Console.WriteLine(" You move deeper into the forest, passing over a babbling creek and winding through dense thickets.\n Eventually, you come across an abandoned campfire. A Treasure Chest rests by the fire.\n");
 
     OpenTreasure();
     continueOptions();
 
-    Console.WriteLine("As you continue down the forest path, the trees thin out and you find yourself in a clearing. In front of you stands a massive Forest Troll. Its green skin is covered in thick moss, and its red eyes lock onto you. It roars, shaking the ground beneath your feet.");
+    Console.WriteLine(" As you continue down the forest path, the trees thin out and you find yourself in a clearing.\n In front of you stands a massive Forest Troll.\n Its green skin is covered in thick moss,\n and its red eyes lock onto you.\n It roars, shaking the ground beneath your feet.");
 
     Combat(troll);
 
-    Console.WriteLine("As you continue your journey, you encounter more challenges and stories unfold. Will you uncover the secrets of the forest, defeat even more powerful enemies, or find the legendary treasure hidden deep within? The path is yours to decide.");
+    Console.WriteLine(" As you continue your journey, you encounter more challenges and stories unfold.\n Will you uncover the secrets of the forest,\n defeat even more powerful enemies,\n or find the legendary treasure hidden deep within?\n The path is yours to decide.");
 
 }
 
@@ -63,7 +63,7 @@ void continueOptions()
 
             for (int i = 0; i < player.Inventory.Count(); i++)
             {
-                Console.WriteLine($"{i}: {player.Inventory[i].Name}");
+                Console.WriteLine($"      {i}: {player.Inventory[i].Name}");
             }
 
             if (int.TryParse(Console.ReadLine(), out int input) && input < player.Inventory.Count)
@@ -110,20 +110,20 @@ void Combat(Monster monster)
     {
         if (!player.IsAlive())
         {
-            Console.WriteLine($"{player.Name} was defeated!");
+            Console.WriteLine($"{player.Name} was defeated!\n");
             break;
         }
 
         Console.WriteLine($"You have {player.Health} HP.");
         Console.WriteLine("Choose an action:");
-        Console.WriteLine("0: Fight!");
-        Console.WriteLine("1: Use an item!");
-        Console.WriteLine("2: Converse!");
+        Console.WriteLine("   0: Fight!");
+        Console.WriteLine("   1: Use an item!");
+        Console.WriteLine("   2: Converse!");
 
         switch (Console.ReadLine())
         {
             case "0":
-                Console.WriteLine($"You strike the {monster.Name}, dealing {player.AttackPower} damage!");
+                Console.WriteLine($"You strike the {monster.Name}, dealing {player.AttackPower} damage!\n");
                 player.DealDamage(monster);
                 break;
 
@@ -142,11 +142,11 @@ void Combat(Monster monster)
 
         if (!monster.IsAlive())
         {
-            Console.WriteLine($"{monster.Name} is defeated!");
+            Console.WriteLine($"{monster.Name} is defeated!\n");
             break;
         }
 
-        Console.WriteLine($"{monster.Name} attacks you, dealing {monster.AttackPower} damag!");
+        Console.WriteLine($"{monster.Name} attacks you, dealing {monster.AttackPower} damage!\n");
         monster.DealDamage(player);
     }
 }
@@ -154,8 +154,8 @@ void Combat(Monster monster)
 void OpenTreasure()
 {
     Console.WriteLine("Choose your action");
-    Console.WriteLine("0: Open Treasure");
-    Console.WriteLine("1: Continue Exploring");
+    Console.WriteLine("   0: Open Treasure");
+    Console.WriteLine("   1: Continue Exploring");
 
     switch (Console.ReadLine())
     {
@@ -163,7 +163,7 @@ void OpenTreasure()
         case "0":
             var shinySword = new Weapon(15, "Shiny Sword");
             player.Inventory.Add(shinySword);
-            Console.WriteLine($"You found a {shinySword}");
+            Console.WriteLine($"You found a {shinySword.Name}");
             break;
 
         case "1":
